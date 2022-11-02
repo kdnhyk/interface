@@ -5,7 +5,7 @@ const SpanBlock = styled.span<{
   size?: number;
   isBold?: boolean;
 }>`
-  color: ${({ color }) => (color ? color : "black")};
+  color: ${({ color }) => (color ? color : "inherit")};
   font-size: ${({ size }) => (size ? size + "px" : "14px")};
   font-weight: ${({ isBold }) => isBold && "bold"};
 `;

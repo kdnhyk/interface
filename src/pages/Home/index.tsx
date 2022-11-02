@@ -1,11 +1,12 @@
-import Banner from "./Banner";
-import MainArticles from "./MainArticles";
+import Main from "./Main";
+import Header from "../../components/Header";
+import { Teams } from "../../store/teams";
 
 export default function Home() {
   return (
     <>
-      <Banner />
-      <MainArticles />
+      <Header />
+      <Main />
     </>
   );
 }
