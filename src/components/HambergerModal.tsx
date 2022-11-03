@@ -158,7 +158,7 @@ export default function HambergerModal({
             {menu1Floor ? (
               <div className="F2">
                 {menu1Floor.map((menu) => (
-                  <Span isBold={true}>menu</Span>
+                  <Span isBold={true}>{menu}</Span>
                 ))}
               </div>
             ) : (
@@ -174,7 +174,7 @@ export default function HambergerModal({
             {menu2Floor ? (
               <div className="F2">
                 {menu2Floor.map((menu) => (
-                  <Span isBold={true}>menu</Span>
+                  <Span isBold={true}>{menu}</Span>
                 ))}
               </div>
             ) : (
@@ -193,19 +193,19 @@ export default function HambergerModal({
           <ModalMainBlock>
             <ModalMainClubsBlock teamColor={teamColor}>
               <div className="Sort">
-                <Span>{Teams[0].title}</Span>
+                <Span>{Teams[0].sort}</Span>
               </div>
               {Teams[0].units.map((team) => (
-                <Span>{team}</Span>
+                <Span>{team.name}</Span>
               ))}
             </ModalMainClubsBlock>
             <ModalMainCrewsBlock>
               <div className="Sort">
-                <Span>{Teams[1].title}</Span>
+                <Span>{Teams[1].sort}</Span>
               </div>
               {Teams[1].units.map((team) => (
-                <Link to="/archive">
-                  <Span>{team}</Span>
+                <Link to={"/" + team.name}>
+                  <Span>{team.name}</Span>
                 </Link>
               ))}
             </ModalMainCrewsBlock>

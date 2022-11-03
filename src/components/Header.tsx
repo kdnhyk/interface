@@ -48,14 +48,14 @@ export default function Header({
         <Link to="/">
           <LogoBlock>
             <svg
-              width="20"
-              height="16"
-              viewBox="0 0 20 16"
+              width="21"
+              height="17"
+              viewBox="0 0 21 17"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M3 2V14.8H6.5H11M3 2L11 3.6M3 2H0.5M19 2L11 3.6M19 2V3.75M19 2V5.5M11 3.6V9.5M11 14.8H19V5.5M11 14.8V9.5M19 5.5V8L11 9.5"
+                d="M2.7027 2V16H6.48649H11.3514M2.7027 2L11.3514 3.75M2.7027 2H0M20 2L11.3514 3.75M20 2V3.91406M20 2V5.82812M11.3514 3.75V10.2031M11.3514 16H20V5.82812M11.3514 16V10.2031M20 5.82812V8.5625L11.3514 10.2031"
                 stroke={teamColor ? "black" : "white"}
                 stroke-width="2"
               />

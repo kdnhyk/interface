@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Forum from "./pages/Forum";
 import Archive from "./pages/Archive";
+import Footer from "./components/Footer";
+import { Teams } from "./store/teams";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -23,9 +25,35 @@ export default function App() {
         {/* <Route path="/signin" element={} /> */}
         <Route path="/" element={<Home />} />
         <Route path="/forum" element={<Forum />} />
-        <Route path="/archive" element={<Archive />} />
+        {Teams[0].units.map((team) => (
+          <Route
+            path={team.name}
+            element={
+              <Archive
+                userName="강동혁"
+                teamColor={team.color}
+                menu1={team.menu1}
+                menu2={team.menu2}
+              />
+            }
+          />
+        ))}
+        {Teams[1].units.map((team) => (
+          <Route
+            path={team.name}
+            element={
+              <Archive
+                userName="강동혁"
+                teamColor={team.color}
+                menu1={team.menu1}
+                menu2={team.menu2}
+              />
+            }
+          />
+        ))}
         {/* <Route element={} /> */}
       </Routes>
+      <Footer></Footer>
     </BrowserRouter>
   );
 }

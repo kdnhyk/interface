@@ -10,10 +10,26 @@ const ArchiveBlock = styled.div`
   color: white;
 `;
 
-export default function Archive() {
+interface IsArchive {
+  userName: string;
+  teamColor: string;
+  menu1: string[];
+  menu2: string[];
+}
+export default function Archive({
+  userName,
+  teamColor,
+  menu1,
+  menu2,
+}: IsArchive) {
   return (
     <ArchiveBlock>
-      <Header userName="강동혁" teamColor="#B92EDC" />
+      <Header
+        userName={userName}
+        teamColor={teamColor}
+        menu1Floor={menu1}
+        menu2Floor={menu2}
+      />
       <Banner />
       <Main />
     </ArchiveBlock>

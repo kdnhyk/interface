@@ -1,24 +1,25 @@
 import styled from "styled-components";
 import Image from "./Image";
 
-const PosterBlock = styled.div`
-  margin-bottom: 10px;
+const PosterBlock = styled.div<{
+  width?: number;
+  height?: number;
+}>`
+  width: ${({ width }) => (width ? width + "px" : "100%")};
+  height: ${({ height }) => (height ? height + "px" : "100%")};
 `;
 
 interface IsPoster {
+  width?: number;
+  height?: number;
   alt: string;
   src: string;
 }
 
-export default function Poster({ alt, src }: IsPoster) {
+export default function Poster({ width, height, alt, src }: IsPoster) {
   return (
-    <PosterBlock>
-      <Image
-        width={355}
-        height={355}
-        alt={alt}
-        src={require(src).default}
-      ></Image>
+    <PosterBlock width={width} height={height}>
+      <Image alt={alt} src={src}></Image>
     </PosterBlock>
   );
 }
