@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Span from "./Span";
 import { Teams } from "../store/teams";
+import RetroBorder from "./RetroBorder";
 
 const HambergerModalBlock = styled.div``;
 
@@ -14,8 +15,9 @@ const ModalBlock = styled.div<{ teamColor?: string }>`
   height: 100%;
   color: ${({ teamColor }) => (teamColor ? "white" : "balck")};
   background: ${({ teamColor }) => (teamColor ? "black" : "white")};
-  border-left: ${({ teamColor }) =>
-    teamColor ? "1px solid white" : "1px solid black"};
+  border: ${({ teamColor }) =>
+    teamColor ? "1px solid #C0C0C0" : "1px solid black"};
+  box-sizing: border-box;
   @keyframes modalSlide {
     from {
       right: -100%;
@@ -26,15 +28,22 @@ const ModalBlock = styled.div<{ teamColor?: string }>`
   }
   transform: modalSlide;
   animation: modalSlide 0.2s ease forwards;
+
+  a {
+    &:hover {
+      background: #c0c0c0;
+    }
+  }
 `;
 
 const ModalHeaderBlock = styled.div`
   width: 100%;
-  height: 40px;
+  height: 56px;
   display: flex;
   justify-content: right;
   align-items: center;
-  padding-right: 10px;
+  padding: 0px 10px 0px 0px;
+  margin-bottom: 10px;
   box-sizing: border-box;
 `;
 
@@ -82,7 +91,7 @@ const ModalLoginBlock = styled.div<{ teamColor?: string }>`
 
 const ModalMainBlock = styled.div`
   width: 100%;
-  height: calc(100% - 196px);
+  height: calc(100% - 212px);
   display: flex;
 `;
 
@@ -133,21 +142,23 @@ export default function HambergerModal({
       {isOpen && (
         <ModalBlock teamColor={teamColor}>
           <ModalHeaderBlock>
-            <ModalHeaderCloseBlock onClick={onClose}>
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M2 2L12 12L22 22M2 22L22 2"
-                  stroke={teamColor ? teamColor : "black"}
-                  stroke-width="3"
-                />
-              </svg>
-            </ModalHeaderCloseBlock>
+            <RetroBorder>
+              <ModalHeaderCloseBlock onClick={onClose}>
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M2 2L12 12L22 22M2 22L22 2"
+                    stroke={teamColor ? teamColor : "black"}
+                    stroke-width="3"
+                  />
+                </svg>
+              </ModalHeaderCloseBlock>
+            </RetroBorder>
           </ModalHeaderBlock>
           <ModalMenuBlock>
             <div className="F1">
@@ -187,7 +198,9 @@ export default function HambergerModal({
             {userName ? (
               <Span color={teamColor}>{userName}</Span>
             ) : (
-              <Span>login</Span>
+              <Link to={"/login"}>
+                <Span>login</Span>
+              </Link>
             )}
           </ModalLoginBlock>
           <ModalMainBlock>

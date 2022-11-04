@@ -14,7 +14,7 @@ const FooterBlock = styled.div`
 export default function Footer() {
   return (
     <FooterBlock>
-      <Span>Team Name: Interface | Contact: info@interface.kr </Span>
+      <Span size={12}> © 2022 INTERFACE ARCHIVE </Span>
     </FooterBlock>
   );
 }
