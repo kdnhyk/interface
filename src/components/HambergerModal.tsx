@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Span from "./Span";
 import { Teams } from "../store/teams";
-import RetroBorder from "./RetroBorder";
 
 const HambergerModalBlock = styled.div``;
 
@@ -16,7 +15,7 @@ const ModalBlock = styled.div<{ teamColor?: string }>`
   color: ${({ teamColor }) => (teamColor ? "white" : "balck")};
   background: ${({ teamColor }) => (teamColor ? "black" : "white")};
   border: ${({ teamColor }) =>
-    teamColor ? "1px solid #C0C0C0" : "1px solid black"};
+    teamColor ? "1px solid white" : "1px solid black"};
   box-sizing: border-box;
   @keyframes modalSlide {
     from {
@@ -42,7 +41,7 @@ const ModalHeaderBlock = styled.div`
   display: flex;
   justify-content: right;
   align-items: center;
-  padding: 0px 10px 0px 0px;
+  padding: 0px 14px 0px 0px;
   margin-bottom: 10px;
   box-sizing: border-box;
 `;
@@ -142,23 +141,21 @@ export default function HambergerModal({
       {isOpen && (
         <ModalBlock teamColor={teamColor}>
           <ModalHeaderBlock>
-            <RetroBorder>
-              <ModalHeaderCloseBlock onClick={onClose}>
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M2 2L12 12L22 22M2 22L22 2"
-                    stroke={teamColor ? teamColor : "black"}
-                    stroke-width="3"
-                  />
-                </svg>
-              </ModalHeaderCloseBlock>
-            </RetroBorder>
+            <ModalHeaderCloseBlock onClick={onClose}>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M2 2L12 12L22 22M2 22L22 2"
+                  stroke={teamColor ? teamColor : "black"}
+                  stroke-width="3"
+                />
+              </svg>
+            </ModalHeaderCloseBlock>
           </ModalHeaderBlock>
           <ModalMenuBlock>
             <div className="F1">

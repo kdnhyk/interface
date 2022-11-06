@@ -2,7 +2,6 @@ import { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import HambergerModal from "./HambergerModal";
-import RetroBorder from "./RetroBorder";
 
 const HeaderBlock = styled.div`
   height: 56px;
@@ -11,7 +10,7 @@ const HeaderBlock = styled.div`
   align-items: center;
   justify-content: space-between;
   padding-left: 16px;
-  padding-right: 8px;
+  padding-right: 19px;
 `;
 
 const LogoBlock = styled.div`
@@ -67,33 +66,32 @@ export default function Header({
             </LogoBlock>
           )}
         </Link>
-        <RetroBorder>
-          <HambergerBlock onClick={onOpenModal}>
-            <svg
-              width="24"
-              height="22"
-              viewBox="0 0 24 22"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 2H24"
-                stroke={teamColor ? teamColor : "white"}
-                stroke-width="3"
-              />
-              <path
-                d="M0 11H24"
-                stroke={teamColor ? teamColor : "white"}
-                stroke-width="3"
-              />
-              <path
-                d="M0 20H24"
-                stroke={teamColor ? teamColor : "white"}
-                stroke-width="3"
-              />
-            </svg>
-          </HambergerBlock>
-        </RetroBorder>
+
+        <HambergerBlock onClick={onOpenModal}>
+          <svg
+            width="24"
+            height="22"
+            viewBox="0 0 24 22"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 2H24"
+              stroke={teamColor ? teamColor : "white"}
+              stroke-width="3"
+            />
+            <path
+              d="M0 11H24"
+              stroke={teamColor ? teamColor : "white"}
+              stroke-width="3"
+            />
+            <path
+              d="M0 20H24"
+              stroke={teamColor ? teamColor : "white"}
+              stroke-width="3"
+            />
+          </svg>
+        </HambergerBlock>
       </HeaderBlock>
       <HambergerModal
         isOpen={isModalOpen}

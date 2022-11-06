@@ -14,7 +14,7 @@ const ArticleBlock = styled.div`
   box-sizing: border-box;
   background: white;
 
-  border-top: 1px solid grey;
+  border-top: 1px solid #d9d9d9;
 `;
 
 const SortBlock = styled.div`
@@ -27,26 +27,22 @@ const TitleBlock = styled.div`
 
 const CommentBlock = styled.div``;
 
-export default function Article(article: IsArticle) {
+export default function Article({ sort, title, comment }: IsArticle) {
   return (
     <ArticleBlock>
       <SortBlock>
-        <Span
-          color={article.sort === "공지" ? "red" : "grey"}
-          size={12}
-          isBold={true}
-        >
-          {article.sort}
+        <Span color={sort === "공지" ? "red" : "grey"} size={12} isBold={true}>
+          {sort}
         </Span>
       </SortBlock>
       <TitleBlock>
         <Span color="black" size={12}>
-          {article.title}
+          {title}
         </Span>
       </TitleBlock>
       <CommentBlock>
         <Span color="blue" size={9}>
-          {String(article.comment.length)}
+          {comment.length.toString()}
         </Span>
       </CommentBlock>
     </ArticleBlock>

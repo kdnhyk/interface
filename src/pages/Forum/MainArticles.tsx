@@ -1,7 +1,11 @@
 import styled from "styled-components";
 import SortButton from "../../components/SortButton";
-import { StarterArticle } from "../../store/articles";
 import Article from "../../components/Article";
+import { useArticles } from "../../firebase";
+import { useCallback, useEffect, useState } from "react";
+import { IsArticle } from "../../store/articles";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { articlesSelector } from "../../store/articles";
 
 const MainArticlesBlock = styled.div`
   height: 375px;
@@ -13,12 +17,13 @@ const ArticleListBlock = styled.div`
 `;
 
 export default function MainArticles() {
+  const [articles, setArticles] = useRecoilState(articlesSelector);
+
   return (
     <MainArticlesBlock>
       <SortButton></SortButton>
-
       <ArticleListBlock>
-        {StarterArticle.list.map((article) => (
+        {articles.map((article) => (
           <Article
             sort={article.sort}
             date={article.date}
