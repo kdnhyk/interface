@@ -37,7 +37,7 @@ const ModalBlock = styled.div<{ teamColor?: string }>`
 
 const ModalHeaderBlock = styled.div`
   width: 100%;
-  height: 56px;
+  height: 46px;
   display: flex;
   justify-content: right;
   align-items: center;
@@ -61,17 +61,17 @@ const ModalMenuBlock = styled.div`
   .F1 {
     display: flex;
     gap: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
   }
   .F2 {
     display: flex;
     gap: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
   }
   .F3 {
     display: flex;
     gap: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
   }
 `;
 
@@ -160,42 +160,52 @@ export default function HambergerModal({
           <ModalMenuBlock>
             <div className="F1">
               <Link to="/">
-                <Span isBold={true}>메인</Span>
+                <Span fontWeight="bold">메인</Span>
               </Link>
             </div>
             {menu1Floor ? (
               <div className="F2">
                 {menu1Floor.map((menu) => (
-                  <Span isBold={true}>{menu}</Span>
+                  <Span fontWeight="bold">{menu}</Span>
                 ))}
               </div>
             ) : (
               <div className="F2">
-                <Link to="/forum">
-                  <Span isBold={true}>입문</Span>
+                <Link to="/starter">
+                  <Span fontWeight="bold">입문</Span>
                 </Link>
-                <Span isBold={true}>홍보</Span>
-                <Span isBold={true}>의류</Span>
-                <Span isBold={true}>익명</Span>
+                <Link to="/trick">
+                  <Span fontWeight="bold">트릭</Span>
+                </Link>
+                <Link to="/spot">
+                  <Span fontWeight="bold">스팟</Span>
+                </Link>
+                <Link to="/fashion">
+                  <Span fontWeight="bold">의류</Span>
+                </Link>
               </div>
             )}
             {menu2Floor ? (
-              <div className="F2">
+              <div className="F3">
                 {menu2Floor.map((menu) => (
-                  <Span isBold={true}>{menu}</Span>
+                  <Span fontWeight="bold">{menu}</Span>
                 ))}
               </div>
             ) : (
-              <div className="F2">
-                <Span isBold={true}>????</Span>
+              <div className="F3">
+                <Link to="/guestbook">
+                  <Span fontWeight="bold">방명록</Span>
+                </Link>
               </div>
             )}
           </ModalMenuBlock>
           <ModalLoginBlock teamColor={teamColor}>
             {userName ? (
-              <Span color={teamColor}>{userName}</Span>
+              <Link to={"/account"}>
+                <Span color={teamColor}>{userName}</Span>
+              </Link>
             ) : (
-              <Link to={"/login"}>
+              <Link to={"/account"}>
                 <Span>login</Span>
               </Link>
             )}

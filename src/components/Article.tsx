@@ -31,7 +31,11 @@ export default function Article({ sort, title, comment }: IsArticle) {
   return (
     <ArticleBlock>
       <SortBlock>
-        <Span color={sort === "공지" ? "red" : "grey"} size={12} isBold={true}>
+        <Span
+          color={sort === "공지" ? "red" : "grey"}
+          size={12}
+          fontWeight="bold"
+        >
           {sort}
         </Span>
       </SortBlock>

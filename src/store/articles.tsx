@@ -1,14 +1,15 @@
-import { db } from "../firebase";
-import { doc, getDoc } from "firebase/firestore";
 import { atom, selector } from "recoil";
 
 export type IsSort = "공지" | "입문" | "익명";
 
 export interface IsArticle {
+  id?: number;
+  userId?: string;
   sort: IsSort;
   date: string;
   title: string;
   content: string;
+  recommendation?: number;
   comment: string[];
 }
 

@@ -1,4 +1,5 @@
 interface IsTeam {
+  id?: number;
   name: string;
   color: string;
   menu1: string[];

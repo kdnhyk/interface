@@ -4,14 +4,16 @@ import { RecoilRoot } from "recoil";
 import Home from "./pages/Home";
 import Forum from "./pages/Forum";
 import Archive from "./pages/Archive";
-import Login from "./pages/Account";
+import Account from "./pages/Account";
 import Footer from "./components/Footer";
 import { Teams } from "./store/teams";
+import Login from "./pages/Account/Login";
+import GuestBook from "./pages/GuestBook";
 
 const GlobalStyle = createGlobalStyle`
   body {
-    margin: 0;
-    padding: 0;
+      margin: 0;
+      padding: 0;
     a {
       text-decoration: none;
       color: inherit;
@@ -29,7 +31,9 @@ export default function App() {
           {/* <Route path="/signin" element={} /> */}
           <Route path="/" element={<Home />} />
           <Route path="/forum" element={<Forum />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/account/*" element={<Account />} />
+          <Route path="/guestbook" element={<GuestBook />} />
+
           {Teams[0].units.map((team) => (
             <Route
               path={team.name}
@@ -57,10 +61,9 @@ export default function App() {
             />
           ))}
           {/* <Route element={} /> */}
+          <Route path="/*" element={<Home />} />
         </Routes>
       </RecoilRoot>
-
-      <Footer></Footer>
     </BrowserRouter>
   );
 }

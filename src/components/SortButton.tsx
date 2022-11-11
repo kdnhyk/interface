@@ -15,7 +15,7 @@ const SortButtonBlock = styled.div`
 export default function SortButton() {
   return (
     <SortButtonBlock>
-      <Span color="white" size={15} isBold={true}>
+      <Span color="white" size={15} fontWeight="bold">
         입문
       </Span>
     </SortButtonBlock>

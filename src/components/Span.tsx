@@ -1,25 +1,24 @@
 import styled from "styled-components";
 
-const SpanBlock = styled.span<{
+interface IsSpanStyle {
   color?: string;
   size?: number;
-  isBold?: boolean;
-}>`
+  fontWeight?: string;
+}
+
+const SpanBlock = styled.span<IsSpanStyle>`
   color: ${({ color }) => (color ? color : "inherit")};
-  font-size: ${({ size }) => (size ? size + "px" : "14px")};
-  font-weight: ${({ isBold }) => isBold && "bold"};
+  font-size: ${({ size }) => (size ? size + "px" : "12px")};
+  font-weight: ${({ fontWeight }) => (fontWeight ? fontWeight : null)};
 `;
 
-export interface IsSpan {
-  color?: string;
-  size?: number;
-  isBold?: boolean;
+interface IsSpan extends IsSpanStyle {
   children: string;
 }
 
-export default function Span({ color, size, isBold, children }: IsSpan) {
+export default function Span({ color, size, fontWeight, children }: IsSpan) {
   return (
-    <SpanBlock color={color} size={size} isBold={isBold}>
+    <SpanBlock color={color} size={size} fontWeight={fontWeight}>
       {children}
     </SpanBlock>
   );
