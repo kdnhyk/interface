@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import LoginForm from "../../../components/LoginForm";
+import LoginForm from "./LoginForm";
 import Span from "../../../components/Span";
 import { Link } from "react-router-dom";
 

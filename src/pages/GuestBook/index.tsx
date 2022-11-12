@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import Header from "../../components/Header";
-import WriteForm from "../../components/WriteForm";
+import WriteForm from "./WriteForm";
 import { useCollection } from "../../hooks/useCollection";
-import GuestBookList from "../../components/GuestBookList";
+import GuestBookList from "./GuestBookList";
 
 const GuestBookBlock = styled.div`
   background: white;

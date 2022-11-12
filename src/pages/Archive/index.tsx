@@ -24,12 +24,7 @@ export default function Archive({
 }: IsArchive) {
   return (
     <ArchiveBlock>
-      <Header
-        userName={userName}
-        teamColor={teamColor}
-        menu1Floor={menu1}
-        menu2Floor={menu2}
-      />
+      <Header teamColor={teamColor} menu1Floor={menu1} menu2Floor={menu2} />
       <Banner />
       <Main />
     </ArchiveBlock>

@@ -4,6 +4,7 @@ import Button from "../../../components/Button";
 import Span from "../../../components/Span";
 import { useState } from "react";
 import { useSignup } from "../../../hooks/useSignup";
+import { useNavigate } from "react-router";
 
 const SignupBlock = styled.div``;
 
@@ -22,13 +23,16 @@ export default function Signup() {
     setNewUserInfo({ ...newUserInfo, [name]: value });
   };
 
+  const navigate = useNavigate();
+
   const { error, isPending, signup } = useSignup();
-  const handleSubmit = () => {
-    signup({
+  const handleSubmit = async () => {
+    await signup({
       email: newUserInfo.EMAIL,
       password: newUserInfo.PASSWORD1,
       displayName: newUserInfo.DISPLAY_NAME,
     });
+    navigate(-1);
   };
 
   return (
@@ -38,7 +42,7 @@ export default function Signup() {
         name="DISPLAY_NAME"
         placeholder="별명"
         value={newUserInfo.DISPLAY_NAME}
-        onChange={(e) => handleInput(e)}
+        onChange={handleInput}
         required
       ></Input>
       <Input
@@ -46,21 +50,21 @@ export default function Signup() {
         name="EMAIL"
         placeholder="이메일"
         value={newUserInfo.EMAIL}
-        onChange={(e) => handleInput(e)}
+        onChange={handleInput}
         required
       ></Input>
       <Input
         name="PASSWORD1"
         placeholder="비밀번호"
         value={newUserInfo.PASSWORD1}
-        onChange={(e) => handleInput(e)}
+        onChange={handleInput}
         required
       ></Input>
       <Input
         name="PASSWORD2"
         placeholder="비밀번호 확인"
         value={newUserInfo.PASSWORD2}
-        onChange={(e) => handleInput(e)}
+        onChange={handleInput}
         required
       ></Input>
       <Button onClick={handleSubmit}>회원가입</Button>

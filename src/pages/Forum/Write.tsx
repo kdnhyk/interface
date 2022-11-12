@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Input from "../../components/Input";
-import WriteForm from "../../components/WriteForm";
+import WriteForm from "../GuestBook/WriteForm";
 
 const WriteBlock = styled.div`
   width: 100%;

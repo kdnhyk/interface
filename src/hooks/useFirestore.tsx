@@ -24,7 +24,6 @@ export const useFirestore = (transaction: string) => {
 
   const addDocument = async (doc: any) => {
     setResponse({
-      ...response,
       document: null,
       isPending: true,
       error: null,
@@ -35,7 +34,6 @@ export const useFirestore = (transaction: string) => {
       const docRef = await addDoc(collectionRef, { ...doc, createdTime });
       console.log(docRef);
       setResponse({
-        ...response,
         document: docRef,
         isPending: false,
         error: null,
@@ -43,7 +41,6 @@ export const useFirestore = (transaction: string) => {
       });
     } catch (error: any) {
       setResponse({
-        ...response,
         document: null,
         isPending: false,
         error: error.message,

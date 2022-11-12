@@ -2,6 +2,8 @@ import { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import HambergerModal from "./HambergerModal";
+import { authSelector } from "../store/Auth";
+import { useRecoilState } from "recoil";
 
 const HeaderBlock = styled.div`
   height: 46px;
@@ -26,14 +28,12 @@ const HambergerBlock = styled.div`
 `;
 
 interface IsHeader {
-  userName?: string;
   teamColor?: string;
   menu1Floor?: string[];
   menu2Floor?: string[];
 }
 
 export default function Header({
-  userName,
   teamColor,
   menu1Floor,
   menu2Floor,
@@ -45,6 +45,8 @@ export default function Header({
   const onCloseModal = () => {
     setIsModalOpen(false);
   };
+
+  const [currentUser, setCurrentUser] = useRecoilState(authSelector);
 
   return (
     <>
@@ -97,7 +99,7 @@ export default function Header({
       <HambergerModal
         isOpen={isModalOpen}
         onClose={onCloseModal}
-        userName={userName}
+        userName={currentUser.displayName}
         teamColor={teamColor}
         menu1Floor={menu1Floor}
         menu2Floor={menu2Floor}
