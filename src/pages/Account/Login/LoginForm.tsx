@@ -4,10 +4,15 @@ import Button from "../../../components/Button";
 import { useLogin } from "../../../hooks/useLogin";
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import Span from "../../../components/Span";
 
 const LoginFormBlock = styled.form`
   width: 100%;
   height: 100%;
+`;
+
+const TopArea = styled.div`
+  margin: 40px 0px 30px 0px;
 `;
 
 const InputWrapper = styled.div`
@@ -40,7 +45,12 @@ export default function LoginForm() {
 
   return (
     <LoginFormBlock onSubmit={handleSubmit}>
-      <h5>login</h5>
+      <TopArea>
+        <Span fontSize={16} fontWeight="bold">
+          login
+        </Span>
+      </TopArea>
+
       <InputWrapper>
         <Input
           type="email"

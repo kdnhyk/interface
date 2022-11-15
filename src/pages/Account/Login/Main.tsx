@@ -35,11 +35,11 @@ export default function Main() {
         <LoginForm />
         <LoginMenuBlock>
           <Link to={"/"}>
-            <Span size={12}>아이디/비밀번호 찾기</Span>
+            <Span fontSize={12}>아이디/비밀번호 찾기</Span>
           </Link>
 
           <Link to={"/account/signup"}>
-            <Span size={12}>회원가입</Span>
+            <Span fontSize={12}>회원가입</Span>
           </Link>
         </LoginMenuBlock>
       </MainSizeWrapper>

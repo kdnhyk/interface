@@ -33,19 +33,19 @@ export default function Article({ sort, title, comment }: IsArticle) {
       <SortBlock>
         <Span
           color={sort === "공지" ? "red" : "grey"}
-          size={12}
+          fontSize={12}
           fontWeight="bold"
         >
           {sort}
         </Span>
       </SortBlock>
       <TitleBlock>
-        <Span color="black" size={12}>
+        <Span color="black" fontSize={12}>
           {title}
         </Span>
       </TitleBlock>
       <CommentBlock>
-        <Span color="blue" size={9}>
+        <Span color="blue" fontSize={9}>
           {comment.length.toString()}
         </Span>
       </CommentBlock>

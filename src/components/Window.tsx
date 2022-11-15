@@ -53,7 +53,7 @@ export default function Window({ title, src, isFocus }: IsWindow) {
     <Draggable>
       <WindowBlock isFocus={isFocus}>
         <WindowHeader>
-          <Span size={15} fontWeight="bold">
+          <Span fontSize={15} fontWeight="bold">
             {title}
           </Span>
           <ButtonWrapper>

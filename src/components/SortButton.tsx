@@ -34,7 +34,7 @@ export default function SortButton({
 }: IsSortButton) {
   return (
     <SortButtonBlock backgroundColor={backgroundColor} onClick={onClick}>
-      <Span color={color} size={fontSize} fontWeight={fontWeight}>
+      <Span color={color} fontSize={fontSize} fontWeight={fontWeight}>
         {children}
       </Span>
     </SortButtonBlock>

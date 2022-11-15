@@ -24,27 +24,27 @@ const BoxBlock = styled.div`
 export default function MediaBox() {
   return (
     <MediaBoxBlock>
-      <Span size={16}>Mixtape</Span>
+      <Span fontSize={16}>Mixtape</Span>
       <BoxWrapperBlock>
         <BoxBlock>
           <Poster width={120} height={120} alt="" src=""></Poster>
-          <Span size={12}>[#1]</Span>
+          <Span fontSize={12}>[#1]</Span>
         </BoxBlock>
         <BoxBlock>
           <Poster width={120} height={120} alt="" src=""></Poster>
-          <Span size={12}>[#2]</Span>
+          <Span fontSize={12}>[#2]</Span>
         </BoxBlock>
         <BoxBlock>
           <Poster width={120} height={120} alt="" src=""></Poster>
-          <Span size={12}>[#3]</Span>
+          <Span fontSize={12}>[#3]</Span>
         </BoxBlock>
         <BoxBlock>
           <Poster width={120} height={120} alt="" src=""></Poster>
-          <Span size={12}>[#4]</Span>
+          <Span fontSize={12}>[#4]</Span>
         </BoxBlock>
         <BoxBlock>
           <Poster width={120} height={120} alt="" src=""></Poster>
-          <Span size={12}>[#5]</Span>
+          <Span fontSize={12}>[#5]</Span>
         </BoxBlock>
       </BoxWrapperBlock>
     </MediaBoxBlock>

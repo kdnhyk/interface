@@ -64,11 +64,11 @@ export default function GuestBookList({ documents }: IsGuestBookList) {
       {documents.map((doc) => (
         <UnitBlock>
           <SpanWrapper>
-            <Span size={10} color="#C0C0C0">
+            <Span fontSize={10} color="#C0C0C0">
               {"__@" + doc.userName}
             </Span>
             <Span>{doc.content}</Span>
-            <Span size={10} color="#C0C0C0">
+            <Span fontSize={10} color="#C0C0C0">
               {doc.createdTime.toDate().toDateString()}
             </Span>
           </SpanWrapper>

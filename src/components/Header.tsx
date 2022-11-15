@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import HambergerModal from "./HambergerModal";
+import NavigationModal from "./NavigationModal";
 import { authSelector } from "../store/Auth";
 import { useRecoilState } from "recoil";
 
@@ -99,14 +99,14 @@ export default function Header({
           </svg>
         </HambergerBlock>
       </HeaderBlock>
-      <HambergerModal
+      <NavigationModal
         isOpen={isModalOpen}
         onClose={onCloseModal}
         userName={currentUser.displayName}
         teamColor={teamColor}
         menu1Floor={menu1Floor}
         menu2Floor={menu2Floor}
-      ></HambergerModal>
+      ></NavigationModal>
     </>
   );
 }

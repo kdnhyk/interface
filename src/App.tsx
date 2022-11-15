@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { RecoilRoot } from "recoil";
 import Home from "./pages/Home";
-import Forum from "./pages/Forum";
+import Board from "./pages/Board";
 import Archive from "./pages/Archive";
 import Account from "./pages/Account";
 import Footer from "./components/Footer";
@@ -30,7 +30,7 @@ export default function App() {
         <Routes>
           {/* <Route path="/signin" element={} /> */}
           <Route path="/" element={<Home />} />
-          <Route path="/forum" element={<Forum />} />
+          <Route path="/board/*" element={<Board />} />
           <Route path="/account/*" element={<Account />} />
           <Route path="/guestbook" element={<GuestBook />} />
 

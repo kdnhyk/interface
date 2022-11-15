@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Span from "./Span";
 import { Teams } from "../store/teams";
 
-const HambergerModalBlock = styled.div``;
+const NavigationModalBlock = styled.div``;
 
 const ModalBlock = styled.div<{ teamColor?: string }>`
   position: absolute;
@@ -121,7 +121,7 @@ const ModalMainCrewsBlock = styled.div`
   }
 `;
 
-interface HambergerModalProps {
+interface NavigationModalProps {
   isOpen: boolean;
   onClose: () => void;
   userName?: string;
@@ -130,16 +130,16 @@ interface HambergerModalProps {
   menu2Floor?: string[];
 }
 
-export default function HambergerModal({
+export default function NavigationModal({
   isOpen,
   onClose,
   userName,
   teamColor,
   menu1Floor,
   menu2Floor,
-}: HambergerModalProps) {
+}: NavigationModalProps) {
   return (
-    <HambergerModalBlock>
+    <NavigationModalBlock>
       {isOpen && (
         <ModalBlock teamColor={teamColor}>
           <ModalHeaderBlock>
@@ -173,17 +173,17 @@ export default function HambergerModal({
               </div>
             ) : (
               <div className="F2">
-                <Link to="/starter">
-                  <Span fontWeight="bold">입문</Span>
+                <Link to="/skate">
+                  <Span fontWeight="bold">SKATE</Span>
                 </Link>
-                <Link to="/trick">
-                  <Span fontWeight="bold">트릭</Span>
-                </Link>
-                <Link to="/spot">
-                  <Span fontWeight="bold">스팟</Span>
-                </Link>
-                <Link to="/fashion">
+                <Link to="/board/fashion">
                   <Span fontWeight="bold">의류</Span>
+                </Link>
+                <Link to="/board/question">
+                  <Span fontWeight="bold">질문</Span>
+                </Link>
+                <Link to="/board/anonymous">
+                  <Span fontWeight="bold">익명</Span>
                 </Link>
               </div>
             )}
@@ -234,6 +234,6 @@ export default function HambergerModal({
           </ModalMainBlock>
         </ModalBlock>
       )}
-    </HambergerModalBlock>
+    </NavigationModalBlock>
   );
 }
