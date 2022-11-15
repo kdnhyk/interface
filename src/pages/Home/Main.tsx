@@ -1,17 +1,18 @@
 import styled from "styled-components";
-import Poster from "../../components/Poster";
-
-import Interface from "../../assets/IMG_3044.PNG";
-import InterfaceArchive from "../../assets/IMG_3045.PNG";
+import Window from "../../components/Window";
+import src from "../../assets/Logo.png";
 
 const MainBlock = styled.div`
   height: 100%;
-  padding: 0px 10px 0px 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+
+  padding: 25px;
+  box-sizing: border-box;
 `;
 
 export default function Main() {
-  return <MainBlock></MainBlock>;
+  return (
+    <MainBlock>
+      <Window title="SPOT" src={src} />
+    </MainBlock>
+  );
 }

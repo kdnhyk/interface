@@ -33,6 +33,8 @@ const ModalBlock = styled.div<{ teamColor?: string }>`
       background: #c0c0c0;
     }
   }
+
+  z-index: 100;
 `;
 
 const ModalHeaderBlock = styled.div`

@@ -1,22 +1,41 @@
 import styled from "styled-components";
 import Span from "./Span";
 
-const SortButtonBlock = styled.div`
-  width: 80px;
+interface IsButtonStyle {
+  backgroundColor?: string;
+  fontSize?: number;
+  fontWeight?: string;
+}
+
+const SortButtonBlock = styled.div<IsButtonStyle>`
+  width: 90px;
   height: 36px;
-  background: black;
+  background: ${({ backgroundColor }) => backgroundColor || "black"};
   display: flex;
   align-items: center;
   justify-content: center;
 
-  margin-left: 10px;
+  cursor: pointer;
 `;
 
-export default function SortButton() {
+interface IsSortButton extends IsButtonStyle {
+  children: string;
+  color?: string;
+  onClick?: () => void;
+}
+
+export default function SortButton({
+  color = "white",
+  backgroundColor,
+  fontSize,
+  fontWeight = "bold",
+  children,
+  onClick,
+}: IsSortButton) {
   return (
-    <SortButtonBlock>
-      <Span color="white" size={15} fontWeight="bold">
-        입문
+    <SortButtonBlock backgroundColor={backgroundColor} onClick={onClick}>
+      <Span color={color} size={fontSize} fontWeight={fontWeight}>
+        {children}
       </Span>
     </SortButtonBlock>
   );

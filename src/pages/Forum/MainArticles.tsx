@@ -21,7 +21,7 @@ export default function MainArticles() {
 
   return (
     <MainArticlesBlock>
-      <SortButton></SortButton>
+      <SortButton>입문</SortButton>
       <ArticleListBlock>
         {articles.map((article) => (
           <Article

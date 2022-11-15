@@ -51,8 +51,16 @@ export const useFirestore = (transaction: string) => {
 
   const deleteDocument = async (id: string) => {
     try {
-      await deleteDoc(doc(appFireStore, transaction, id));
-    } catch (error: any) {}
+      await deleteDoc(doc(collectionRef, id));
+      console.log(doc(appFireStore, transaction, id));
+    } catch (error: any) {
+      setResponse({
+        document: null,
+        isPending: false,
+        error: error.message,
+        success: false,
+      });
+    }
   };
 
   return { addDocument, deleteDocument, response };

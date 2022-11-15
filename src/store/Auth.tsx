@@ -14,7 +14,6 @@ export const authSelector = selector<IsAuth>({
   key: "selectAuth",
   get: ({ get }) => {
     const originalState = get(authState);
-    console.log("user: " + originalState.user);
     return originalState;
   },
   set: ({ set }, newValue) => {

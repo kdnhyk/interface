@@ -4,6 +4,7 @@ import IconButton from "../../components/IconButton";
 import { useFirestore } from "../../hooks/useFirestore";
 import { authSelector } from "../../store/Auth";
 import { useRecoilState } from "recoil";
+import { DocumentData } from "firebase/firestore";
 
 const GuestBookListBlock = styled.ul`
   list-style: none;
@@ -37,6 +38,8 @@ const UnitBlock = styled.li`
 `;
 
 const SpanWrapper = styled.div`
+  width: 100%;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -48,31 +51,33 @@ const ButtonWrapper = styled.div`
   height: 15px;
 `;
 
-export default function GuestBookList({ documents }: any) {
+interface IsGuestBookList {
+  documents: DocumentData[];
+}
+export default function GuestBookList({ documents }: IsGuestBookList) {
   const { deleteDocument } = useFirestore("GuestBook");
-  const handleButton = (e: any) => {
-    deleteDocument(e.target.id);
-  };
 
   const [currentUser] = useRecoilState(authSelector);
 
   return (
     <GuestBookListBlock>
-      {documents.map((doc: any) => (
+      {documents.map((doc) => (
         <UnitBlock>
           <SpanWrapper>
             <Span size={10} color="#C0C0C0">
               {"__@" + doc.userName}
             </Span>
             <Span>{doc.content}</Span>
+            <Span size={10} color="#C0C0C0">
+              {doc.createdTime.toDate().toDateString()}
+            </Span>
           </SpanWrapper>
           <ButtonWrapper>
             {currentUser.user && currentUser.user.uid === doc.userId && (
               <IconButton
                 className="IconButton"
                 backgroundColor="inherit"
-                id={doc.id}
-                onClick={handleButton}
+                onClick={() => deleteDocument(doc.id)}
               >
                 <svg
                   width="13"

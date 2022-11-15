@@ -15,7 +15,15 @@ interface IsTeams {
 export const Teams: IsTeams[] = [
   {
     sort: "Clubs(Univ.)",
-    units: [{ name: "mute", color: "white", menu1: [], menu2: [], member: [] }],
+    units: [
+      {
+        name: "mute(한양대학교)",
+        color: "white",
+        menu1: [],
+        menu2: [],
+        member: [],
+      },
+    ],
   },
   {
     sort: "Crews",

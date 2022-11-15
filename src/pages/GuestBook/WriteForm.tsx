@@ -39,7 +39,7 @@ export default function WriteForm() {
 
   const { addDocument, response } = useFirestore("GuestBook");
   useEffect(() => {
-    console.log(response.success);
+    console.log("success: " + response.success);
     if (response.success) {
       setContent(() => "");
     }

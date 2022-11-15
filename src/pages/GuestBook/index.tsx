@@ -11,7 +11,7 @@ const GuestBookBlock = styled.div`
 const BookArrayBlock = styled.div``;
 
 export default function GuestBook() {
-  const { documents, error } = useCollection("GuestBook");
+  const { documents, error } = useCollection("GuestBook", []);
 
   return (
     <GuestBookBlock>

@@ -1,13 +1,15 @@
 import styled from "styled-components";
 
 interface IsIconButtonStyle {
-  color?: string;
   backgroundColor?: string;
-  fontSize?: string;
-  fontWeight?: string;
 }
 
-const IconButtonBlock = styled.div``;
+const IconButtonBlock = styled.div<IsIconButtonStyle>`
+  width: 100%;
+  height: 100%;
+
+  background: ${({ backgroundColor }) => backgroundColor || "inherit"};
+`;
 
 interface IsIconButton extends IsIconButtonStyle {
   id?: string;

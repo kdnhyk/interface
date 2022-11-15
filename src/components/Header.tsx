@@ -10,6 +10,9 @@ const HeaderBlock = styled.div`
   background: black;
   display: flex;
   align-items: center;
+
+  position: relative;
+  z-index: 10;
 `;
 
 const LogoBlock = styled.div`
