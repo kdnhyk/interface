@@ -7,11 +7,19 @@ import { useState } from "react";
 import { useFirestore } from "../../hooks/useFirestore";
 import { useNavigate } from "react-router";
 
+const SortArea = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 10px 0px 20px;
+  box-sizing: border-box;
+`;
+
 const WriteBlock = styled.div`
   width: 100%;
   height: 100%;
   background: white;
-  padding: 20px 30px;
+  padding: 20px 20px;
   box-sizing: border-box;
 
   display: flex;
@@ -19,12 +27,12 @@ const WriteBlock = styled.div`
   gap: 15px;
 `;
 
-const SortArea = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 30px 10px 0px 20px;
-  box-sizing: border-box;
+const TextareaWrapper = styled.div`
+  height: 300px;
+`;
+
+const ButtonWrapper = styled.div`
+  height: 40px;
 `;
 
 export default function Write() {
@@ -70,13 +78,17 @@ export default function Write() {
           value={input.title}
           onChange={onChangeInput}
         />
-        <Textarea
-          name="content"
-          placeholder="내용"
-          value={input.content}
-          onChange={onChangeInput}
-        />
-        <Button onClick={onSubmit}>add</Button>
+        <TextareaWrapper>
+          <Textarea
+            name="content"
+            placeholder="내용"
+            value={input.content}
+            onChange={onChangeInput}
+          />
+        </TextareaWrapper>
+        <ButtonWrapper>
+          <Button onClick={onSubmit}>작성완료</Button>
+        </ButtonWrapper>
       </WriteBlock>
     </>
   );

@@ -2,18 +2,21 @@ import Header from "../../components/Header";
 import Write from "./Write";
 import { useState } from "react";
 import { useFirestore } from "../../hooks/useFirestore";
-import ArticleWithImg from "../../components/Article-img";
+import ArticleWithImg from "../../components/ArticleWithImg";
 import styled from "styled-components";
 import Span from "../../components/Span";
 
-const BoardBlock = styled.div``;
+const BoardBlock = styled.div`
+  padding: 30px 20px;
+  box-sizing: border-box;
+`;
 
 const SortArea = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 30px 10px 0px 20px;
-  box-sizing: border-box;
+
+  margin-bottom: 10px;
 `;
 
 const WriteWrapper = styled.div`
@@ -22,7 +25,14 @@ const WriteWrapper = styled.div`
 
 const ArticlesWrapper = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  @media (max-width: 599px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  @media (min-width: 600px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  gap: 10px;
 `;
 
 export default function Board() {

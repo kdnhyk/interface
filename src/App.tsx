@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import { Teams } from "./store/teams";
 import Login from "./pages/Account/Login";
 import GuestBook from "./pages/GuestBook";
+import NotFound from "./pages/NotFound";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -61,7 +62,7 @@ export default function App() {
             />
           ))}
           {/* <Route element={} /> */}
-          <Route path="/*" element={<Home />} />
+          <Route path="/*" element={<NotFound />} />
         </Routes>
       </RecoilRoot>
     </BrowserRouter>

@@ -14,7 +14,7 @@ const initState: IsInitState = {
   success: false,
 };
 
-export function useResponse(result: any, error: string) {
+export function useResponse() {
   const [response, setResponse] = useState(initState);
 
   const onStart = () => {
@@ -26,7 +26,7 @@ export function useResponse(result: any, error: string) {
     });
   };
 
-  const onSuccess = () => {
+  const onSuccess = (result: any) => {
     setResponse({
       result: result,
       isPending: false,
@@ -35,7 +35,7 @@ export function useResponse(result: any, error: string) {
     });
   };
 
-  const onError = () => {
+  const onError = (error: string) => {
     setResponse({
       result: null,
       isPending: false,
@@ -43,5 +43,5 @@ export function useResponse(result: any, error: string) {
       success: false,
     });
   };
-  return response;
+  return { response, onStart, onSuccess, onError };
 }
