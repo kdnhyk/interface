@@ -7,6 +7,10 @@ import { useSignup } from "../../../hooks/useSignup";
 import { useNavigate } from "react-router";
 
 const SignupBlock = styled.div`
+  width: 100%;
+  min-width: 320px;
+  max-width: 760px;
+  margin: 0 auto;
   padding: 20px;
   box-sizing: border-box;
 `;

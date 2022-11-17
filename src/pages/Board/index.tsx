@@ -1,18 +1,30 @@
 import Header from "../../components/Header";
 import Write from "./Write";
 import { useState } from "react";
-import { useFirestore } from "../../hooks/useFirestore";
+import { useCollection } from "../../hooks/useCollection";
 import ArticleWithImg from "../../components/ArticleWithImg";
 import styled from "styled-components";
 import Span from "../../components/Span";
+import { authSelector } from "../../store/Auth";
+import { useRecoilState } from "recoil";
 
 const BoardBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const MainBlock = styled.div`
+  width: 100%;
+  max-width: 1000px;
+
   padding: 30px 20px;
   box-sizing: border-box;
 `;
 
 const SortArea = styled.div`
   width: 100%;
+
   display: flex;
   justify-content: space-between;
 
@@ -24,9 +36,11 @@ const WriteWrapper = styled.div`
 `;
 
 const ArticlesWrapper = styled.div`
+  width: 100%;
   display: grid;
   @media (max-width: 599px) {
     grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: 200px;
   }
   @media (min-width: 600px) {
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -36,60 +50,49 @@ const ArticlesWrapper = styled.div`
 `;
 
 export default function Board() {
+  const [currentUser] = useRecoilState(authSelector);
   const [isWrite, setIsWrite] = useState(false);
   const onWrite = () => {
     setIsWrite(true);
   };
 
-  const { addDocument } = useFirestore("first");
+  const { documents } = useCollection("Board", []);
 
   return (
-    <>
+    <BoardBlock>
       <Header />
       {isWrite ? (
         <Write />
       ) : (
-        <BoardBlock>
+        <MainBlock>
           <SortArea>
             <Span fontWeight="bold" fontSize={16}>
               의류
             </Span>
-            <WriteWrapper onClick={onWrite}>
-              <Span fontSize={12}>글 작성</Span>
-            </WriteWrapper>
+            {currentUser.user && (
+              <WriteWrapper onClick={onWrite}>
+                <Span fontSize={12}>글 작성</Span>
+              </WriteWrapper>
+            )}
           </SortArea>
           <ArticlesWrapper>
-            <ArticleWithImg
-              date={"date"}
-              sort={"공지"}
-              title={"스케이트보드 입문"}
-              content={"???"}
-              comment={[]}
-            />
-            <ArticleWithImg
-              date={"date"}
-              sort={"공지"}
-              title={"스케이트보드 입문"}
-              content={"???"}
-              comment={[]}
-            />
-            <ArticleWithImg
-              date={"date"}
-              sort={"공지"}
-              title={"스케이트보드 입문"}
-              content={"???"}
-              comment={[]}
-            />
-            <ArticleWithImg
-              date={"date"}
-              sort={"공지"}
-              title={"스케이트보드 입문"}
-              content={"???"}
-              comment={[]}
-            />
+            {documents &&
+              documents.map((doc) => {
+                return (
+                  <ArticleWithImg
+                    date={doc.createdTime.toDate().toDateString()}
+                    sort={"공지"}
+                    url={doc.url}
+                    userName={doc.userName}
+                    title={doc.title}
+                    content={doc.content}
+                    comment={[]}
+                  />
+                );
+              })}
           </ArticlesWrapper>
-        </BoardBlock>
+        </MainBlock>
       )}
-    </>
+    </BoardBlock>
   );
 }

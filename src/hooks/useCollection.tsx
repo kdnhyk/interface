@@ -9,7 +9,7 @@ import {
 import { useEffect, useState } from "react";
 import { appFireStore } from "../firebase";
 
-export const useCollection = (transaction: string, myQuery: any[]) => {
+export const useCollection = (transaction: string, myQuery?: any[]) => {
   const [documents, setDocuments] = useState<null | DocumentData[]>(null);
   const [error, setError] = useState<null | string>(null);
 

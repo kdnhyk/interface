@@ -13,7 +13,7 @@ const ArticleWithImgBlock = styled.div`
 
 const ImgWrapper = styled.div`
   width: 100%;
-  height: 100%;
+  height: 88%;
   cursor: pointer;
 `;
 
@@ -33,11 +33,16 @@ const SubBlock = styled.div`
   }
 `;
 
-export default function ArticleWithImg({ title, comment }: IsArticle) {
+export default function ArticleWithImg({
+  userName,
+  title,
+  url,
+  comment,
+}: IsArticle) {
   return (
     <ArticleWithImgBlock>
       <ImgWrapper>
-        <Poster alt={"alt"} src={"/"}></Poster>
+        <Poster alt={"empty"} src={url ? url : ""}></Poster>
       </ImgWrapper>
 
       <TitleBlock>
@@ -50,7 +55,7 @@ export default function ArticleWithImg({ title, comment }: IsArticle) {
       </TitleBlock>
       <SubBlock>
         <Span color="#808080" fontSize={11}>
-          {"dev"}
+          {userName ? userName : "익명"}
         </Span>
         <Span color="#808080" fontSize={11}>
           {"date"}

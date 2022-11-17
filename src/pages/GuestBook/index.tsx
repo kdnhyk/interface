@@ -8,7 +8,12 @@ const GuestBookBlock = styled.div`
   background: white;
 `;
 
-const BookArrayBlock = styled.div``;
+const BookArrayBlock = styled.div`
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-bottom: 20px;
+`;
 
 export default function GuestBook() {
   const { documents, error } = useCollection("GuestBook", []);
@@ -18,10 +23,9 @@ export default function GuestBook() {
       <Header />
       <BookArrayBlock>
         {error && <h3>{error}</h3>}
-
         {documents && <GuestBookList documents={documents} />}
+        <WriteForm />
       </BookArrayBlock>
-      <WriteForm />
     </GuestBookBlock>
   );
 }

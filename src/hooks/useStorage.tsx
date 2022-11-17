@@ -1,74 +1,31 @@
-import { useState } from "react";
-import { appStorage, tiemstamp } from "../firebase";
-import { deleteDoc, doc } from "firebase/firestore";
+import { appStorage } from "../firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
-interface IsInitState {
-  document: any;
-  isPending: boolean;
-  error: any;
-  success: boolean;
-}
+export const useStorage = () => {
+  const upload = async (file: any, setImageURL: any) => {
+    console.log("upload start");
+    const storageRef = ref(appStorage, `images/${file.name}`);
 
-const initState: IsInitState = {
-  document: null,
-  isPending: false,
-  error: null,
-  success: false,
-};
+    try {
+      if (file === null) return;
 
-interface IsFile {
-  name: string;
-  src: string;
-}
+      await uploadBytes(storageRef, file);
 
-export const useStorage = (file: IsFile) => {
-  // const [response, setResponse] = useState(initState);
-  // const [imageList, setImageList] = useState([]);
-  // const storageRef = ref(appStorage, "images/" + file.name);
-  // const upload = async (doc: any) => {
-  //   setResponse({
-  //     document: null,
-  //     isPending: true,
-  //     error: null,
-  //     success: false,
-  //   });
-  //   try {
-  //     if (file === null) return;
-  //     const createdTime = tiemstamp.fromDate(new Date());
-  //     uploadBytes(storageRef, file).then((snapshot) => {
-  //       console.log("Uploaded a blob or file!");
-  //       getDownloadURL(snapshot.ref).then((url) => {
-  //         setImageList((prev) => [...prev, url]);
-  //       });
-  //     });
-  //     setResponse({
-  //       document: docRef,
-  //       isPending: false,
-  //       error: null,
-  //       success: true,
-  //     });
-  //   } catch (error: any) {
-  //     setResponse({
-  //       document: null,
-  //       isPending: false,
-  //       error: error.message,
-  //       success: false,
-  //     });
-  //   }
-  // };
-  // const deleteDocument = async (id: string) => {
-  //   try {
-  //     await deleteDoc(doc(collectionRef, id));
-  //     console.log(doc(appFireStore, file, id));
-  //   } catch (error: any) {
-  //     setResponse({
-  //       document: null,
-  //       isPending: false,
-  //       error: error.message,
-  //       success: false,
-  //     });
-  //   }
-  // };
-  // return { upload, deleteDocument, response };
+      getDownloadURL(storageRef).then((url) => {
+        console.log(url, "나는 URL");
+
+        setImageURL(url);
+      });
+    } catch (error: any) {
+      console.log(error.message);
+    }
+  };
+
+  const deleteDocument = async (id: string) => {
+    try {
+    } catch (error: any) {
+      console.log(error.message);
+    }
+  };
+  return { upload, deleteDocument };
 };

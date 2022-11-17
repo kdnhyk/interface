@@ -5,6 +5,7 @@ import Banner from "./Banner";
 import { Teams } from "../../store/teams";
 
 const HomeBlock = styled.div`
+  width: 100%;
   -ms-overflow-style: none;
   scrollbar-width: none;
   &::-webkit-scrollbar {

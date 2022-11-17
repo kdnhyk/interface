@@ -7,6 +7,7 @@ interface IsTextareaStyle {
 const TextareaBlock = styled.textarea<IsTextareaStyle>`
   width: 100%;
   height: 100%;
+  height: 300px;
   font-size: ${({ fontSize }) => (fontSize ? fontSize + "px" : "12px")};
 
   padding: 10px;

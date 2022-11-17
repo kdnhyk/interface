@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { IsArticle } from "../store/articles";
 import Span from "./Span";
-
-const ArticleBlock = styled.div`
+// 미완
+const FullArticleBlock = styled.div`
   width: 100%;
   height: 40px;
   display: flex;
@@ -17,7 +17,6 @@ const ArticleBlock = styled.div`
 
 const SortBlock = styled.div`
   width: 32px;
-  height: fit-content;
   margin-right: 20px;
 `;
 
@@ -27,21 +26,13 @@ const TitleBlock = styled.div`
 
 const CommentBlock = styled.div``;
 
-const UserNameBlock = styled.div``;
-
-export default function Article({
-  sort,
-  title,
-  comment,
-  date,
-  userName,
-}: IsArticle) {
+export default function FullArticle({ sort, title, comment }: IsArticle) {
   return (
-    <ArticleBlock>
+    <FullArticleBlock>
       <SortBlock>
         <Span
           color={sort === "공지" ? "red" : "#808080"}
-          fontSize={12}
+          fontSize={13}
           fontWeight="bold"
         >
           {sort}
@@ -57,7 +48,6 @@ export default function Article({
           {comment.length.toString()}
         </Span>
       </CommentBlock>
-      <UserNameBlock>{userName}</UserNameBlock>
-    </ArticleBlock>
+    </FullArticleBlock>
   );
 }

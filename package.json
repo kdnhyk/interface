@@ -11,6 +11,7 @@
     "@types/react-dom": "^18.0.8",
     "@types/react-router": "^5.1.19",
     "firebase": "^9.13.0",
+    "quill-image-resize-module-react": "^3.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-draggable": "^4.4.5",
@@ -47,6 +48,7 @@
     ]
   },
   "devDependencies": {
+    "@types/navermaps": "^3.6.0",
     "@types/react": "^18.0.24",
     "@types/styled-components": "^5.1.26"
   }

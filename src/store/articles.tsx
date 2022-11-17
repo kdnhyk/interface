@@ -1,6 +1,6 @@
 import { atom, selector } from "recoil";
 
-export type IsSort = "공지" | "입문" | "익명";
+export type IsSort = "공지" | "의류" | "질문" | "잡담";
 
 export interface IsArticle {
   id?: number;
@@ -8,10 +8,12 @@ export interface IsArticle {
   userName?: string;
   date: string;
   sort: IsSort;
+  url?: string;
   title: string;
   content: string;
   recommendation?: number;
   comment: string[];
+  views?: number;
 }
 
 export interface IsComment {

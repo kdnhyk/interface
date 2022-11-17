@@ -10,6 +10,7 @@ import { Teams } from "./store/teams";
 import Login from "./pages/Account/Login";
 import GuestBook from "./pages/GuestBook";
 import NotFound from "./pages/NotFound";
+import Skate from "./pages/Skate";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -34,17 +35,19 @@ export default function App() {
           <Route path="/board/*" element={<Board />} />
           <Route path="/account/*" element={<Account />} />
           <Route path="/guestbook" element={<GuestBook />} />
+          <Route path="/skate" element={<Skate />} />
 
           {Teams[0].units.map((team) => (
             <Route
               path={team.name}
               element={
-                <Archive
-                  userName="강동혁"
-                  teamColor={team.color}
-                  menu1={team.menu1}
-                  menu2={team.menu2}
-                />
+                <NotFound />
+                // <Archive
+                //   userName="강동혁"
+                //   teamColor={team.color}
+                //   menu1={team.menu1}
+                //   menu2={team.menu2}
+                // />
               }
             />
           ))}
@@ -52,12 +55,13 @@ export default function App() {
             <Route
               path={team.name}
               element={
-                <Archive
-                  userName="강동혁"
-                  teamColor={team.color}
-                  menu1={team.menu1}
-                  menu2={team.menu2}
-                />
+                <NotFound />
+                // <Archive
+                //   userName="강동혁"
+                //   teamColor={team.color}
+                //   menu1={team.menu1}
+                //   menu2={team.menu2}
+                // />
               }
             />
           ))}

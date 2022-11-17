@@ -183,7 +183,7 @@ export default function NavigationModal({
                   <Span fontWeight="bold">질문</Span>
                 </Link>
                 <Link to="/board/anonymous">
-                  <Span fontWeight="bold">익명</Span>
+                  <Span fontWeight="bold">잡담</Span>
                 </Link>
               </div>
             )}

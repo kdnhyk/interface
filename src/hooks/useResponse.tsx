@@ -26,7 +26,7 @@ export function useResponse() {
     });
   };
 
-  const onSuccess = (result: any) => {
+  const onSuccess = (result?: any) => {
     setResponse({
       result: result,
       isPending: false,
