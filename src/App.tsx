@@ -35,7 +35,7 @@ export default function App() {
           <Route path="/board/*" element={<Board />} />
           <Route path="/account/*" element={<Account />} />
           <Route path="/guestbook" element={<GuestBook />} />
-          <Route path="/skate" element={<Skate />} />
+          <Route path="/skate/*" element={<Skate />} />
 
           {Teams[0].units.map((team) => (
             <Route

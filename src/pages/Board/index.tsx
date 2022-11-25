@@ -38,22 +38,33 @@ const WriteWrapper = styled.div`
 const ArticlesWrapper = styled.div`
   width: 100%;
   display: grid;
-  @media (max-width: 599px) {
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-auto-rows: 200px;
+  @media (max-width: 200px) {
+    width: 200px;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 400px) {
+    width: 400px;
+    grid-template-columns: 1fr 1fr;
   }
   @media (min-width: 600px) {
+    width: 600px;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  @media (min-width: 800px) {
+    width: 800px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
-
   gap: 10px;
 `;
 
 export default function Board() {
   const [currentUser] = useRecoilState(authSelector);
   const [isWrite, setIsWrite] = useState(false);
-  const onWrite = () => {
+  const openWrite = () => {
     setIsWrite(true);
+  };
+  const closeWrite = () => {
+    setIsWrite(false);
   };
 
   const { documents } = useCollection("Board", []);
@@ -62,7 +73,7 @@ export default function Board() {
     <BoardBlock>
       <Header />
       {isWrite ? (
-        <Write />
+        <Write closeWrite={closeWrite} />
       ) : (
         <MainBlock>
           <SortArea>
@@ -70,7 +81,7 @@ export default function Board() {
               의류
             </Span>
             {currentUser.user && (
-              <WriteWrapper onClick={onWrite}>
+              <WriteWrapper onClick={openWrite}>
                 <Span fontSize={12}>글 작성</Span>
               </WriteWrapper>
             )}

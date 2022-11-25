@@ -4,9 +4,11 @@ import src from "../../assets/Logo.png";
 
 const BannerBlock = styled.div`
   width: 100%;
+  max-width: 1000px;
   height: 220px;
 
-  padding: 20px 80px;
+  margin: 0 auto;
+  padding: 20px;
   box-sizing: border-box;
 
   //background-size: cover

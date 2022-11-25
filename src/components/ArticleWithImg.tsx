@@ -35,6 +35,7 @@ const SubBlock = styled.div`
 
 export default function ArticleWithImg({
   userName,
+  date,
   title,
   url,
   comment,
@@ -58,7 +59,7 @@ export default function ArticleWithImg({
           {userName ? userName : "익명"}
         </Span>
         <Span color="#808080" fontSize={11}>
-          {"date"}
+          {date}
         </Span>
       </SubBlock>
     </ArticleWithImgBlock>

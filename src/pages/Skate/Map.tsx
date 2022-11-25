@@ -79,18 +79,18 @@ export default function Map() {
       map,
     });
 
-    SpotArray.map((item) => {
-      markerRef.current = new naver.maps.Marker({
-        position: new naver.maps.LatLng(item.location[0], item.location[1]),
-        map: mapRef.current,
-        icon: {
-          url: { ParkIcon },
-          size: new naver.maps.Size(38, 58),
-          anchor: new naver.maps.Point(19, 58),
-        },
-      });
-      // markerClickEvent(markerRef, item);
-    });
+    // SpotArray.map((item) => {
+    //   markerRef.current = new naver.maps.Marker({
+    //     position: new naver.maps.LatLng(item.location[0], item.location[1]),
+    //     map: mapRef.current,
+    //     icon: {
+    //       url: { ParkIcon },
+    //       size: new naver.maps.Size(38, 58),
+    //       anchor: new naver.maps.Point(19, 58),
+    //     },
+    //   });
+    //   // markerClickEvent(markerRef, item);
+    // });
 
     // function markerClickEvent(marker: any, item: IsSpot) {
     //   naver.maps.Event.addListener(marker, "click", (e: any) => {

@@ -40,7 +40,11 @@ const ButtonWrapper = styled.div`
   height: 40px;
 `;
 
-export default function Write() {
+interface IsWrite {
+  closeWrite: () => void;
+}
+
+export default function Write({ closeWrite }: IsWrite) {
   const [currnetUser, setCurrentUser] = useRecoilState(authSelector);
   const [input, setInput] = useState({
     uid: "",
@@ -67,7 +71,7 @@ export default function Write() {
 
   const onSubmit = () => {
     addDocument(input);
-    nav("-1");
+    closeWrite();
   };
 
   const setImageURL = (url: string) => {
