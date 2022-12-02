@@ -13,6 +13,7 @@ export const useLogin = () => {
     email: string;
     password: string;
   }
+
   const login = ({ email, password }: IsLogin) => {
     setError(null);
     setIsPending(true);

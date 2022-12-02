@@ -46,7 +46,7 @@ interface IsWrite {
 export default function Write({ closeWrite }: IsWrite) {
   const [currnetUser] = useRecoilState(authSelector);
   const [input, setInput] = useState({
-    uid: "",
+    uid: currnetUser.user.uid || currnetUser.user.id,
     userName: currnetUser.displayName,
     title: "",
     url: "",

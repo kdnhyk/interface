@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Button from "../../components/Button";
 import { useNavigate } from "react-router";
-import { useSignout } from "../../hooks/useSignout";
+import { useLogout } from "../../hooks/useLogout";
 import { useEffect } from "react";
 import { authSelector } from "../../store/Auth";
 import { useRecoilState } from "recoil";
@@ -17,7 +17,7 @@ const ButtonWrapper = styled.div`
 `;
 
 export default function Main() {
-  const { signout } = useSignout();
+  const { logout } = useLogout();
   const nav = useNavigate();
   const [auth, setAuth] = useRecoilState(authSelector);
 
@@ -28,7 +28,7 @@ export default function Main() {
   }, [auth.user, nav]);
 
   const onLogout = () => {
-    signout();
+    logout();
     nav("/");
   };
   return (

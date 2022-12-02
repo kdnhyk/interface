@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
-import {  useState } from "react";
+import { useState } from "react";
 import { useFirestore } from "../../hooks/useFirestore";
 import { authSelector } from "../../store/Auth";
 import { useRecoilState } from "recoil";
@@ -44,7 +44,7 @@ export default function WriteForm() {
     addDocument({
       content: content,
       userName: currentUser.displayName,
-      userId: currentUser.user.uid,
+      userId: currentUser.user.uid || currentUser.user.id,
     });
     setContent(() => "");
   };

@@ -40,7 +40,7 @@ export default function LoginForm() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     await login({ email: loginInput.email, password: loginInput.password });
-    navigate(-1);
+    navigate("/account");
   };
 
   return (

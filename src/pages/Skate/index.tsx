@@ -58,12 +58,12 @@ export default function Skate() {
         >
           트릭
         </SortButton>
-        <SortButton
+        {/* <SortButton
           onClick={() => onClickSortButton("map")}
           backgroundColor={sortButtonBackgroundColor("map")}
         >
           스팟
-        </SortButton>
+        </SortButton> */}
         <SortButton
           onClick={() => onClickSortButton("fashion")}
           backgroundColor={sortButtonBackgroundColor("fashion")}
@@ -75,7 +75,7 @@ export default function Skate() {
         <Routes>
           {/* <Route path="" element={<Main />} /> */}
           <Route path="starter" element={<Starter />} />
-          <Route path="map" element={<Map />} />
+          {/* <Route path="map" element={<Map />} /> */}
           <Route path="fashion" element={<Fashion />} />
         </Routes>
       </MainBlock>

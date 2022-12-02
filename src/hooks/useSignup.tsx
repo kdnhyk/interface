@@ -1,5 +1,9 @@
 import { useState } from "react";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithCustomToken,
+  updateProfile,
+} from "firebase/auth";
 import { appAuth } from "../firebase";
 import { authSelector } from "../store/Auth";
 import { useRecoilState } from "recoil";
@@ -7,7 +11,7 @@ import { useRecoilState } from "recoil";
 export const useSignup = () => {
   const [error, setError] = useState(null);
   const [isPending, setIsPending] = useState(false);
-  const [currentUser, setCurrentUser] = useRecoilState(authSelector);
+  const [, setCurrentUser] = useRecoilState(authSelector);
 
   interface IsSignup {
     email: string;
@@ -45,5 +49,21 @@ export const useSignup = () => {
       });
   };
 
-  return { error, isPending, signup };
+  interface IsSignupWithNaver {
+    auth: any;
+    token: any;
+  }
+  const signupWithNaver = ({ auth, token }: IsSignupWithNaver) => {
+    signInWithCustomToken(auth, token)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        if (!user) {
+          throw new Error("회원가입에 실패했습니다.");
+        }
+        setCurrentUser({ user: user, displayName: "Naver" });
+      })
+      .catch((error) => {});
+  };
+
+  return { error, isPending, signup, signupWithNaver };
 };

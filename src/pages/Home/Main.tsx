@@ -34,6 +34,8 @@ export default function Main() {
       </SortButtonWrapper>
       <ArticleWrapper>
         <Article
+          id="1"
+          url=""
           date={"0101"}
           sort={"공지"}
           title={"22/12/01 Update Log"}
@@ -41,6 +43,8 @@ export default function Main() {
           comment={[""]}
         />
         <Article
+          id="1"
+          url=""
           date={"0101"}
           sort={"의류"}
           title={"Article"}

@@ -87,6 +87,7 @@ export default function Board() {
               documents.map((doc) => {
                 return (
                   <ArticleWithImg
+                    id={doc.id}
                     date={doc.createdTime.toDate().toDateString()}
                     sort={"공지"}
                     url={doc.url}
