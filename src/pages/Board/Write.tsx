@@ -4,7 +4,6 @@ import Span from "../../components/Span";
 import Button from "../../components/Button";
 import { useState } from "react";
 import { useFirestore } from "../../hooks/useFirestore";
-import { useNavigate } from "react-router";
 import ImgageUploader from "../../components/ImageUploader";
 import Textarea from "../../components/Textarea";
 import { authSelector } from "../../store/Auth";
@@ -45,7 +44,7 @@ interface IsWrite {
 }
 
 export default function Write({ closeWrite }: IsWrite) {
-  const [currnetUser, setCurrentUser] = useRecoilState(authSelector);
+  const [currnetUser] = useRecoilState(authSelector);
   const [input, setInput] = useState({
     uid: "",
     userName: currnetUser.displayName,
@@ -66,8 +65,6 @@ export default function Write({ closeWrite }: IsWrite) {
   };
 
   const { addDocument } = useFirestore("Board");
-
-  const nav = useNavigate();
 
   const onSubmit = () => {
     addDocument(input);
@@ -95,7 +92,7 @@ export default function Write({ closeWrite }: IsWrite) {
           value={input.title}
           onChange={onChangeInput}
         />
-        <ImgageUploader setImageURL={setImageURL} />
+        <ImgageUploader url={input.url} setImageURL={setImageURL} />
         <ContentWrapper>
           <Textarea
             name="content"

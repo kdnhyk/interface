@@ -17,7 +17,7 @@ export const Teams: IsTeams[] = [
     sort: "Clubs(Univ.)",
     units: [
       {
-        name: "mute(한양대학교)",
+        name: "mute",
         color: "white",
         menu1: [],
         menu2: [],

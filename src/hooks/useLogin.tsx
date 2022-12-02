@@ -7,7 +7,7 @@ import { useRecoilState } from "recoil";
 export const useLogin = () => {
   const [error, setError] = useState(null);
   const [isPending, setIsPending] = useState(false);
-  const [currentUser, setCurrentUser] = useRecoilState(authSelector);
+  const [, setCurrentUser] = useRecoilState(authSelector);
 
   interface IsLogin {
     email: string;

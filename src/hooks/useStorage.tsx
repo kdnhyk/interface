@@ -1,5 +1,10 @@
 import { appStorage } from "../firebase";
-import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import {
+  deleteObject,
+  getDownloadURL,
+  ref,
+  uploadBytes,
+} from "firebase/storage";
 
 export const useStorage = () => {
   const upload = async (file: any, setImageURL: any) => {
@@ -21,11 +26,14 @@ export const useStorage = () => {
     }
   };
 
-  const deleteDocument = async (id: string) => {
+  const deleteImage = async (url: string) => {
+    const storageRef = ref(appStorage, url);
+
     try {
+      deleteObject(storageRef);
     } catch (error: any) {
       console.log(error.message);
     }
   };
-  return { upload, deleteDocument };
+  return { upload, deleteImage };
 };

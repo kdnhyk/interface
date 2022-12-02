@@ -39,19 +39,15 @@ const ArticlesWrapper = styled.div`
   width: 100%;
   display: grid;
   @media (max-width: 200px) {
-    width: 200px;
     grid-template-columns: 1fr;
   }
   @media (min-width: 400px) {
-    width: 400px;
     grid-template-columns: 1fr 1fr;
   }
   @media (min-width: 600px) {
-    width: 600px;
     grid-template-columns: 1fr 1fr 1fr;
   }
   @media (min-width: 800px) {
-    width: 800px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
   gap: 10px;

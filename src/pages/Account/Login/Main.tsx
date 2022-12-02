@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import LoginForm from "./LoginForm";
+import NaverLogin from "../../../components/NaverLogin";
 import Span from "../../../components/Span";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const MainBlock = styled.div`
   width: 100%;
@@ -29,6 +31,8 @@ const LoginMenuBlock = styled.div`
 const SNSLoginBlcok = styled.div``;
 
 export default function Main() {
+  const setGetToken = () => {};
+
   return (
     <MainBlock>
       <MainSizeWrapper>
@@ -42,6 +46,9 @@ export default function Main() {
             <Span fontSize={12}>회원가입</Span>
           </Link>
         </LoginMenuBlock>
+        <SNSLoginBlcok>
+          <NaverLogin setGetToken={setGetToken} />
+        </SNSLoginBlcok>
       </MainSizeWrapper>
     </MainBlock>
   );

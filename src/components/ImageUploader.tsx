@@ -41,12 +41,13 @@ const ImgWrapper = styled.div<{ attachment: any }>`
 `;
 
 interface IsImgageUploader extends IsImgageUploaderStyle {
+  url: string;
   setImageURL: any;
 }
 
-export default function ImgageUploader({ setImageURL }: IsImgageUploader) {
+export default function ImgageUploader({ url, setImageURL }: IsImgageUploader) {
   const inputRef = useRef<HTMLInputElement | null>(null);
-  const { upload, deleteDocument } = useStorage();
+  const { upload, deleteImage } = useStorage();
 
   const [attachment, setAttachment] = useState<any>();
   const [file, setFile] = useState<any>();
@@ -55,13 +56,11 @@ export default function ImgageUploader({ setImageURL }: IsImgageUploader) {
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const { files, value } = event.target;
       console.log(files);
-      if (!files) {
-        return;
-      }
-      console.log(files[0].name);
-      const theFile = files[0];
+      if (!files) return;
 
-      if (theFile.size > 1 * 1024 * 1024) {
+      const OriginFile = files[0];
+
+      if (OriginFile.size > 1 * 1024 * 1024) {
         alert("이미지 파일 용량이 너무 큽니다.");
       }
 
@@ -70,11 +69,11 @@ export default function ImgageUploader({ setImageURL }: IsImgageUploader) {
         const result = reader.result;
         setAttachment(result);
       };
-      reader.readAsDataURL(theFile);
+      reader.readAsDataURL(OriginFile);
 
       // 개선
-      setFile(theFile);
-      upload(theFile, setImageURL);
+      setFile(OriginFile);
+      upload(OriginFile, setImageURL);
     },
     []
   );
@@ -82,6 +81,7 @@ export default function ImgageUploader({ setImageURL }: IsImgageUploader) {
   const onClearAttachment = () => {
     setAttachment(null);
     setFile("");
+    deleteImage(url);
     inputRef.current!.value = "";
   };
 
@@ -121,8 +121,7 @@ export default function ImgageUploader({ setImageURL }: IsImgageUploader) {
       <ImgWrapper attachment={attachment} onClick={onClearAttachment}>
         <img alt="a" src={attachment}></img>
       </ImgWrapper>
-
-      <Span>{file ? file.name : "_"}</Span>
+      {/*  <Span>{file ? file.name : "_"}</Span> */}
     </ImgageUploaderBlock>
   );
 }

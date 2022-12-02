@@ -17,6 +17,7 @@ export const authSelector = selector<IsAuth>({
     return originalState;
   },
   set: ({ set }, newValue) => {
+    console.log(newValue);
     set(authState, newValue);
   },
 });

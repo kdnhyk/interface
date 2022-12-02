@@ -36,16 +36,16 @@ export default function Main() {
         <Article
           date={"0101"}
           sort={"공지"}
-          title={"스케이트보드 입문"}
+          title={"22/12/01 Update Log"}
           content={"내용"}
           comment={[""]}
         />
         <Article
           date={"0101"}
           sort={"의류"}
-          title={"의류 게시물"}
+          title={"Article"}
           content={"내용"}
-          comment={[""]}
+          comment={[]}
         />
       </ArticleWrapper>
     </MainBlock>

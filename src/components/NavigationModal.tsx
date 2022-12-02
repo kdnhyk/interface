@@ -173,7 +173,7 @@ export default function NavigationModal({
               </div>
             ) : (
               <div className="F2">
-                <Link to="/skate">
+                <Link to="/skate/starter">
                   <Span fontWeight="bold">SKATE</Span>
                 </Link>
                 <Link to="/board/fashion">

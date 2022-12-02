@@ -6,25 +6,36 @@ import { useEffect } from "react";
 import { authSelector } from "../../store/Auth";
 import { useRecoilState } from "recoil";
 
-const MainBlock = styled.div``;
+const MainBlock = styled.div`
+  padding: 10px;
+  box-sizing: border-box;
+`;
+
+const ButtonWrapper = styled.div`
+  width: 100%;
+  height: 32px;
+`;
 
 export default function Main() {
   const { signout } = useSignout();
-  const navigate = useNavigate();
+  const nav = useNavigate();
   const [auth, setAuth] = useRecoilState(authSelector);
+
   useEffect(() => {
     if (!auth.user) {
-      navigate("/account/login");
+      nav("/account/login");
     }
-  }, [auth.user]);
+  }, [auth.user, nav]);
 
   const onLogout = () => {
     signout();
-    navigate("/");
+    nav("/");
   };
   return (
     <MainBlock>
-      <Button onClick={onLogout}>logout</Button>
+      <ButtonWrapper>
+        <Button onClick={onLogout}>logout</Button>
+      </ButtonWrapper>
     </MainBlock>
   );
 }
