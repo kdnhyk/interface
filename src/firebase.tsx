@@ -18,6 +18,6 @@ const app = initializeApp(firebaseConfig);
 const appAuth = getAuth();
 const appFireStore = getFirestore(app);
 const appStorage = getStorage(app);
-const tiemstamp = Timestamp;
+const timestamp = Timestamp;
 
-export { appAuth, appFireStore, appStorage, tiemstamp };
+export { appAuth, appFireStore, appStorage, timestamp };

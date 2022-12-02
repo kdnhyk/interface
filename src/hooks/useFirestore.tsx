@@ -1,4 +1,4 @@
-import { appFireStore, tiemstamp } from "../firebase";
+import { appFireStore, timestamp } from "../firebase";
 import { addDoc, collection, deleteDoc, doc } from "firebase/firestore";
 
 export const useFirestore = (transaction: string) => {
@@ -6,11 +6,12 @@ export const useFirestore = (transaction: string) => {
 
   const addDocument = async (doc: any) => {
     try {
-      const createdTime = tiemstamp.fromDate(new Date());
+      const createdTime = timestamp.fromDate(new Date());
       const docRef = await addDoc(collectionRef, { ...doc, createdTime });
       console.log(docRef);
     } catch (error: any) {
       console.log(error.message);
+      console.log(doc);
     }
   };
 

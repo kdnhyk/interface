@@ -31,7 +31,7 @@ export default function NaverLogin({ setGetToken }: IsNaverLogin) {
       console.log(`login: ${status}`);
       if (status) {
         setUserInfo({
-          user: naverLogin.user,
+          user: { ...naverLogin.user, uid: naverLogin.user.id },
           displayName: naverLogin.user.getName(),
         });
       }
@@ -43,10 +43,8 @@ export default function NaverLogin({ setGetToken }: IsNaverLogin) {
   const getToken = () => {
     if (!location.hash) return;
     const token = location.hash.split("=")[1].split("&")[0];
-    console.log(token);
 
     localStorage.setItem("access_token", token);
-    return token;
   };
 
   useEffect(() => {

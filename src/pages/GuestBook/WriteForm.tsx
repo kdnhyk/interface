@@ -44,7 +44,7 @@ export default function WriteForm() {
     addDocument({
       content: content,
       userName: currentUser.displayName,
-      userId: currentUser.user.uid || currentUser.user.id,
+      userId: currentUser.user.uid,
     });
     setContent(() => "");
   };
